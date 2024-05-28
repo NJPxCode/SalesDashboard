@@ -1,0 +1,80 @@
+# README for Data Processing Script
+
+## Overview
+This Python script, `dataprocessing2.py`, is designed to process and analyze a dataset of sales data. It calculates key metrics such as total sales amount, best-selling product by quantity, and monthly sales trends. The results are then saved in a JSON file for further use or visualization.
+
+## Prerequisites
+- Python 3.x
+- Pandas library
+- NumPy library
+
+## File Description
+- **dataprocessing2.py**: The main script that loads, processes, calculates metrics, and saves the sales data.
+
+## Setup and Execution
+
+### Installation of Dependencies
+Before running the script, ensure that Python and the required libraries (Pandas and NumPy) are installed. You can install the libraries using pip:
+```bash
+pip install pandas numpy
+```
+
+### Configuration
+The script expects a configuration file named `config.json` in the same directory, which should specify:
+- `data_file_path`: The path to the CSV file containing the sales data.
+- `output_file_path`: The path where the output JSON file will be saved.
+
+Example `config.json`:
+```json
+{
+  "data_file_path": "path/to/your/salesdata.csv",
+  "output_file_path": "path/to/output/processed_data.json"
+}
+
+```
+
+### Running the Script
+Navigate to the directory containing the script and execute it using Python:
+```bash
+python dataprocessing2.py
+```
+
+## Key Functions
+
+### `load_data(file_path)`
+Loads the dataset from a specified CSV file path. It handles specific data types for each column to ensure correct data processing.
+
+### `preprocess_data(df)`
+Preprocesses the DataFrame by cleaning data and converting data types. It handles missing values and converts dates and numeric fields from strings.
+
+### `calculate_metrics(df)`
+Calculates the required metrics:
+- Total sales amount
+- Best-selling product by quantity
+- Monthly sales trends
+
+### `save_to_json(...)`
+Saves the calculated metrics to a JSON file at the specified output path. It ensures the directory exists before saving the file.
+
+## Output
+The script outputs a JSON file containing:
+- `total_sales_amount`: The total sales amount calculated from the dataset.
+- `best_selling_product`: The product with the highest quantity sold.
+- `best_selling_quantity`: The quantity sold of the best-selling product.
+- `monthly_sales`: A list of dictionaries, each containing the month and total sales for that month.
+
+The output file is saved to the location specified in the `config.json` file.
+
+## Example Output JSON
+```json
+{
+  "total_sales_amount": 1200000,
+  "best_selling_product": "Product XYZ",
+  "best_selling_quantity": 300,
+  "monthly_sales": [
+    {"Month": "2021-01", "TotalPrice": 100000},
+    {"Month": "2021-02", "TotalPrice": 150000},
+    ...
+  ]
+}
+```

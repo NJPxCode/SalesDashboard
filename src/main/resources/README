@@ -1,0 +1,80 @@
+# README for Simple Sales Data Dashboard Java Application
+
+## For preprocessing the data, please refer to the `analysis/README.md` file in the `analysis` directory.
+
+## Setup and Running the Application
+
+### Prerequisites
+- Java JDK 11 or higher
+- Maven (to build and run the project)
+
+
+### Steps to Run
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Use Maven to build the project:
+   ```bash
+   mvn clean install
+   ```
+4. Run the application:
+   ```bash
+   mvn spring-boot:run
+   ```
+
+## API Documentation
+
+### Endpoints
+
+#### 1. Get API Root
+- **Endpoint:** `GET /api/sales/`
+- **Description:** Provides the root message for the Sales API.
+- **Response:**
+  ```json
+  {
+    "message": "API Root. Use specific endpoints for data."
+  }
+  ```
+
+#### 2. Get Total Sales Data
+- **Endpoint:** `GET /api/sales/total`
+- **Description:** Retrieve the total sales data from JSON source.
+- **Response:**
+  ```json
+  {
+    "totalSalesAmount": 2305320.0
+  }
+  ```
+
+#### 3. Get Best-Selling Product
+- **Endpoint:** `GET /api/sales/product/best-selling`
+- **Description:** Retrieve the best-selling product data from JSON source.
+- **Response:**
+  ```json
+  {
+    "productName": "Golf Cart 1/2 18 Holes",
+    "quantitySold": 22135.0
+  }
+  ```
+
+#### 4. Get Monthly Sales Data
+- **Endpoint:** `GET /api/sales/monthly`
+- **Description:** Retrieve sales data aggregated by month from JSON source.
+- **Response:**
+  ```json
+  [
+    {"Month": "2015-12", "TotalPrice": 9015.0},
+    {"Month": "2016-01", "TotalPrice": 84543.0},
+    {"Month": "2016-02", "TotalPrice": 154082.0},
+    {"Month": "2016-03", "TotalPrice": 323226.0},
+    {"Month": "2016-04", "TotalPrice": 552501.0},
+    {"Month": "2016-05", "TotalPrice": 650335.0},
+    {"Month": "2016-06", "TotalPrice": 531618.0}
+  ]
+  ```
+
+### Swagger UI (under development-config issues)
+You can also access the Swagger UI to interact with the API at:
+```
+http://localhost:8080/swagger-ui/index.html
+```
+This provides a visual interface for exploring and testing the API endpoints.

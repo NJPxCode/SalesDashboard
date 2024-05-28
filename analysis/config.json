@@ -1,0 +1,4 @@
+  {
+    "data_file_path": "../data/Golf_Sales_Data.csv",
+    "output_file_path": "output/processed_data.json"
+  }
